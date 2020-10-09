@@ -2,6 +2,8 @@
 using BocadUITestsSolution.Core;
 using BocadUITestsSolution.ObjectRepos;
 using BocadUITestsSolution.UIControls;
+using RazorEngine.Compilation.ImpromptuInterface.InvokeExt;
+using System.Diagnostics;
 using System.Windows.Automation;
 using TestStack.White;
 
@@ -26,7 +28,8 @@ namespace BocadUITestsSolution.Prerequisite
             string JobName = MiscFunctions.GenerateCoupon(7);
             TextBoxControls.SetTextinAnyTextBox(LoginElements.Win_MainWindow, AutomationElement.AutomationIdProperty, AutomationElement.AutomationIdProperty, LoginElements.TxtBx_JobName, JobName);
             ButtonContorls.ClickButtoninAnyWindow(LoginElements.Win_MainWindow, AutomationElement.AutomationIdProperty, AutomationElement.AutomationIdProperty, LoginElements.Btn_Create);
-            MyUtilities.WaitTime(6000);
+            MyUtilities.WaitTime(6000);          
+
             //Creation of Grid
             ButtonContorls.ClickButtoninAnyWindow(LoginElements.Win_CreateGrid, AutomationElement.NameProperty, AutomationElement.NameProperty, LoginElements.Btn_Ok);
             MyUtilities.WaitTime(2000);
