@@ -1646,6 +1646,10 @@ namespace BocadUITestsSolution.Prerequisite
         public void change1()
         { 
         }
+        public void change12()
+        { console.writeLine(i changed to check here);
+        }
+        
     }
     }
 
