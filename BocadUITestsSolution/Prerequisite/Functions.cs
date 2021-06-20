@@ -1642,6 +1642,10 @@ namespace BocadUITestsSolution.Prerequisite
             UIActions.Click_Element(886, 554);
 
         }
+
+        public void change1()
+        { 
+        }
     }
     }
 
