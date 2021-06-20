@@ -1649,6 +1649,12 @@ namespace BocadUITestsSolution.Prerequisite
         public void change12()
         {
             Console.WriteLine("See the new changes");
+            string s = "";
+            char[] ch=s.ToCharArray();
+            for (int i=0;i<=ch.Length;i++)
+            { 
+            }
+            
         }
         
     }
