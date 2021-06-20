@@ -7,7 +7,7 @@ using System.Windows.Automation;
 
 namespace BocadUITestsSolution.TestScripts.PseudoAttributeHandler
 {
-    [TestClass]
+    //[TestClass]
     public class TS_US370773_PseudoAttributehandlerforPPOSattributeonDTBOLTDTHOLE
     {
         [TestMethod]

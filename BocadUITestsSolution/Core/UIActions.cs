@@ -19,6 +19,7 @@ namespace BocadAPITestsSolution.Core
             {
 
                 Mouse.Instance.Click(Element.GetClickablePoint());
+                
             }
             catch (Exception)
             {
@@ -27,6 +28,17 @@ namespace BocadAPITestsSolution.Core
 
         }
 
+        public static void RightClick_Element(AutomationElement Element)
+        {
+            try
+            {
+                Mouse.Instance.RightClick(Element.GetClickablePoint());
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
         public static void EnterValueIntoBox(AutomationElement Element, string value)
         {
             ValuePattern EnterPattern = Element.GetCurrentPattern(ValuePattern.Pattern) as ValuePattern;
@@ -60,10 +72,6 @@ namespace BocadAPITestsSolution.Core
 
         }
 
-
-
-
-
         public static void Click_Element(int point, int point1)
         {
             try
@@ -96,7 +104,21 @@ namespace BocadAPITestsSolution.Core
 
         }
 
+        public static void Control_Click(int X, int Y)
+        {
+            if (X != 0 && Y != 0)
+            {
+                Mouse.Instance.Location = new System.Windows.Point(X, Y);
+                TestStack.White.InputDevices.Keyboard.Instance.HoldKey(TestStack.White.WindowsAPI.KeyboardInput.SpecialKeys.CONTROL);
+                Mouse.Instance.Click();
+                TestStack.White.InputDevices.Keyboard.Instance.LeaveKey(TestStack.White.WindowsAPI.KeyboardInput.SpecialKeys.CONTROL);
+            }
+            else
+            {
 
+            }
+
+        }
         public static void Control_Mouse_RightClick(int X, int Y)
         {
             if (X != 0 && Y != 0)
@@ -160,7 +182,7 @@ namespace BocadAPITestsSolution.Core
         {
 
 
-            UIActions.Click_Element(source);
+           // UIActions.Click_Element(source);
 
             Mouse.Instance.Location = source;
             Task.Delay(1000).Wait();

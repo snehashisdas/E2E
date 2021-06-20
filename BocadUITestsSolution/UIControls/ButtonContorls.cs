@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Automation;
+using System.Windows.Automation.Text;
 
 namespace BocadUITestsSolution.UIControls
 {
@@ -17,8 +18,29 @@ namespace BocadUITestsSolution.UIControls
             AutomationElement button = MainWindowAsElement.FindFirst(TreeScope.Descendants, prop);
             UIActions.Click_Element(button);
             
+            
         }
 
+        public static void ClickButtoninAnySubWindow(string mainwindowname, AutomationProperty mainwindowprop,
+            string subWindowname,AutomationProperty subwindowproperty, AutomationProperty buttonprop, string anybutton)
+        {
+            AutomationElement MainWindowAsElement = AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(mainwindowprop, mainwindowname));
+            PropertyCondition SubWindowprop = new PropertyCondition(subwindowproperty, subWindowname);
+            AutomationElement SubWindowAsElement = MainWindowAsElement.FindFirst(TreeScope.Descendants, SubWindowprop);
+            PropertyCondition Elementprop = new PropertyCondition(buttonprop, anybutton);
+            AutomationElement button = SubWindowAsElement.FindFirst(TreeScope.Descendants, Elementprop);
+            UIActions.Click_Element(button);
+
+
+        }
+        public static void RightClickButtoninAnyWindow(string windowname, AutomationProperty windowprop, AutomationProperty buttonprop, string anybutton)
+        {
+            AutomationElement MainWindowAsElement = AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(windowprop, windowname));
+            PropertyCondition prop = new PropertyCondition(buttonprop, anybutton);
+            AutomationElement button = MainWindowAsElement.FindFirst(TreeScope.Descendants, prop);
+            UIActions.RightClick_Element(button);
+
+        }
         public static void ClickButtoninAnyWindowwithDropDown(string windowname, AutomationProperty windowprop, AutomationProperty buttonprop, string anybutton)
         {
             MyUtilities.DelayFor(2000);
@@ -44,8 +66,6 @@ namespace BocadUITestsSolution.UIControls
             UIActions.DoubleClick_Element(button);
 
         }
-
-
         public static void ClickManyButtons(string windowname, AutomationProperty windowprop, ControlType buttonprop, int n,int j)
         {
             AutomationElement MainWindowAsElement = AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(windowprop, windowname));
@@ -59,6 +79,36 @@ namespace BocadUITestsSolution.UIControls
                     UIActions.Click_Element(item1);
                 
             }
+        }
+
+        public static string fineNameAttributeOfChildElement(string windowname, AutomationProperty windowprop, AutomationProperty buttonprop, string anybutton)
+        {
+            string nameProp1;
+            AutomationElement MainWindowAsElement = AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(windowprop, windowname));
+            PropertyCondition prop = new PropertyCondition(buttonprop, anybutton);
+            AutomationElement button = MainWindowAsElement.FindFirst(TreeScope.Descendants, prop);
+            //TextPattern textpatternPattern = button.GetCurrentPattern(TextPattern.Pattern) as TextPattern;
+            //if (textpatternPattern == null)
+            //{
+            //    Console.WriteLine("Root element does not contain a descendant that supports TextPattern.");
+            //    return null;
+            //}
+            //TextPatternRange[] currentSelection = textpatternPattern.GetSelection();
+            //return currentSelection[0].GetText(12);
+
+            object namePropNoDefault = button.GetCurrentPropertyValue(AutomationElement.NameProperty, true);
+            if (namePropNoDefault == AutomationElement.NotSupported)
+            {
+                nameProp1 = "No name."; 
+                
+            }
+            else
+            {
+                nameProp1 = namePropNoDefault as string;
+
+            }
+            return nameProp1;
+            //return button;
         }
 
     }

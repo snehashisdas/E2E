@@ -8,14 +8,14 @@ namespace BocadUITestsSolution.Core
     {
         public static ExtentReports extent;
         public static ExtentTest test;
-
+        
         ///---------------------------------------------------------------------------------------------------------------------------------------
         /// <summary>
         /// Method is to initate  and reuse Extent object for reporting
         /// </summary>
         /// <param name><param>
         /// <returns>Nothing</returns>
-        /// <Author>Navya Yadlapalli</Author>
+        /// <Author>Snehashis Das</Author>
         /// <Created Date>18/09/2020</Created Date>
         /// <Modified Date> </Modified Date>
         /// <Modified by>  </Modified by>	
@@ -49,7 +49,7 @@ namespace BocadUITestsSolution.Core
         /// name : Name of test case
         /// <param>
         /// <returns>Nothing</returns>
-        /// <Author>Navya Yadlapalli</Author>
+        /// <Author>Snehashis Das</Author>
         /// <Created Date>17/09/2020</Created Date>
         /// <Modified Date> </Modified Date>
         /// <Modified by> </Modified by>
@@ -67,14 +67,14 @@ namespace BocadUITestsSolution.Core
         /// driver : Winium driver
         /// <param>
         /// <returns>Nothing</returns>
-        /// <Author>Navya Yadlapalli</Author>
+        /// <Author>Snehashis Das</Author>
         /// <Created Date>17/09/2020</Created Date>
         /// <Modified Date> </Modified Date>
         /// <Modified by> </Modified by>
         ///---------------------------------------------------------------------------------------------------------------------------------------
         //public static string CaptureScreenShoot(IWebDriver driver, String ScreenShotName)
 
-        public string CaptureScreenShoot(String ScreenShotName)
+        public static string CaptureScreenShoot(String ScreenShotName)
         {
             String path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             String Fpath = path.Substring(0, path.LastIndexOf("bin")) + "Reports\\ErrorScreenShot\\" + ScreenShotName + ".png";

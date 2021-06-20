@@ -28,7 +28,6 @@ namespace BocadAPITestsSolution.Core
         {
 
             Bitmap printscreen = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-
             Graphics graphics = Graphics.FromImage(printscreen as System.Drawing.Image);
             graphics.CopyFromScreen(0, 0, 0, 0, printscreen.Size);
             FileInfo fInfo = new FileInfo(fileName);

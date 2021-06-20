@@ -11,7 +11,7 @@ namespace BocadUITestsSolution.UIControls
             AutomationElement MainWindowAsElement = AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(windowprop, windowname));
             PropertyCondition prop = new PropertyCondition(checkboxprop, checkboxitem);
             AutomationElement checkboxitem1 = MainWindowAsElement.FindFirst(TreeScope.Descendants, prop);
-            
+
 
             TogglePattern tp = checkboxitem1.GetCurrentPattern(TogglePattern.Pattern) as TogglePattern;
             if (tp.Current.ToggleState == ToggleState.On) // not on? click it

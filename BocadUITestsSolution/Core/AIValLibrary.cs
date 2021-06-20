@@ -12,7 +12,7 @@ namespace BocadUITestsSolution.Core
             //Rectangle rect = new Rectangle(386, 4, 280, 21);
             string strBitmapPath;
             //strBitmapPath = @"c:\Test\JPG\" + sBitmapName + ".jpg";
-            strBitmapPath = @"D:\Test\BMP\" + sBitmapName + ".bmp";
+            strBitmapPath = @"C:\SNEHASHIS\Snap\" + sBitmapName + ".bmp";
             Rectangle rect = new Rectangle(xStart, yStart, width, bredth);
             Bitmap bmp = new Bitmap(rect.Width, rect.Height, PixelFormat.Format32bppArgb);
             Graphics g = Graphics.FromImage(bmp);
@@ -25,12 +25,12 @@ namespace BocadUITestsSolution.Core
         }
 
 
-        public void CaptureBitmap(int xStart, int yStart, int width, int bredth, string sBitmapName)
+        public static void CaptureBitmap(int xStart, int yStart, int width, int bredth, string sBitmapName)
         {
             //Rectangle rect = new Rectangle(386, 4, 280, 21);
             string strBitmapPath;
             //strBitmapPath = @"c:\Test\JPG\" + sBitmapName + ".jpg";
-            strBitmapPath = @"D:\Test\BMP\ActualImages\" + sBitmapName + ".bmp";
+            strBitmapPath = @"C:\SNEHASHIS\Snap\" + sBitmapName + ".bmp";
             Rectangle rect = new Rectangle(xStart, yStart, width, bredth);
             Bitmap bmp = new Bitmap(rect.Width, rect.Height, PixelFormat.Format32bppArgb);
             Graphics g = Graphics.FromImage(bmp);
@@ -104,7 +104,7 @@ namespace BocadUITestsSolution.Core
             float percentage;
             percentage = 0;
 
-            string path;
+            //string path;
 
             Color bm1_color;
             Color bm2_color;
