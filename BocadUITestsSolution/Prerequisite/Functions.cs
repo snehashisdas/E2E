@@ -1647,7 +1647,8 @@ namespace BocadUITestsSolution.Prerequisite
         { 
         }
         public void change12()
-        { console.writeLine(i changed to check here);
+        {
+            Console.WriteLine("See the new changes");
         }
         
     }
